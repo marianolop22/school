@@ -349,7 +349,7 @@ function init_plugins() {
 
 	$document.ready(function () {
 
-		CRUMINA.preloader();
+		//CRUMINA.preloader();
 
 		CRUMINA.perfectScrollbarInit();
 
