@@ -1,0 +1,105 @@
+/*------------- #REGISTRATION-LOGIN-FORM --------------*/
+.registration-login-form {
+    border: 1px solid #e6ecf5;
+    border-radius: 0 5px 5px 0;
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    /*padding-left: 71px;*/
+    margin-bottom: 20px;
+    /*min-height: 700px; */
+}
+    .registration-login-form .nav-tabs {
+      float: left;
+      display: block;
+      height: 100%;
+      border: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0; }
+    .registration-login-form .nav-item {
+      margin-bottom: 0;
+      height: 50%;
+      display: table; }
+      .registration-login-form .nav-item:last-child .nav-link {
+        border-bottom: 0; }
+    .registration-login-form .nav-link {
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid #e6ecf5;
+      border-right: 1px solid #e6ecf5;
+      padding: 25px;
+      color: #c0c4d8;
+      fill: #c0c4d8;
+      background-color: #fafbfd;
+      height: 100%;
+      display: table-cell;
+      vertical-align: middle; }
+      .registration-login-form .nav-link.active {
+        fill: #ff5e3a;
+        background-color: #fff;
+        border-color: #e6ecf5; }
+      .registration-login-form .nav-link svg {
+        width: 21px;
+        height: 21px; }
+    .registration-login-form .tab-content {
+      overflow: hidden; }
+    .registration-login-form .content {
+      padding: 35px 25px; }
+    .registration-login-form .title {
+      padding: 25px;
+      border-bottom: 1px solid #e6ecf5;
+      margin-bottom: 0; }
+    .registration-login-form p {
+      margin-bottom: 0;
+      font-size: 13px; }
+    .registration-login-form .remember {
+      margin: 35px 0 25px; }
+  
+  .remember {
+    margin-bottom: 1rem; }
+    .remember .checkbox {
+      display: inline-block;
+      margin-bottom: 0; }
+    .remember a {
+      line-height: 2; }
+    .remember .forgot {
+      float: right;
+      color: #888da8; }
+  
+  .or {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    margin: 1rem 0 2rem 0;
+    background-color: #e6ecf5; }
+    .or:after {
+      content: 'OR';
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 0 25px;
+      font-size: 10px;
+      z-index: 5; }
+  
+  .form--login-logout {
+    width: 100%;
+    margin-right: 30px; }
+    .form--login-logout form {
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end; }
+    .form--login-logout .form-control {
+      background-color: #494c62;
+      border: 0;
+      color: #9a9fbf; }
+    .form--login-logout .login-btn-responsive {
+      display: none; }
+    .form--login-logout button.btn {
+      padding: .578rem 2.1rem; }
+  
