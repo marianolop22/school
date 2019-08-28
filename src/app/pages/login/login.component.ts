@@ -9,7 +9,17 @@ declare function init_plugins();
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public loading:boolean = true;
+
+  constructor() {
+
+    // setTimeout(() => {
+    //   this.loading = false;
+    //   console.log('mando false');
+      
+    // }, 2000);
+
+  }
 
   ngOnInit() {
     init_plugins();
