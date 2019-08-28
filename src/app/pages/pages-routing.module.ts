@@ -7,6 +7,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent, children:[
         { path:'noticias', loadChildren: './news/news.module#NewsModule' },
         { path:'nosotros', loadChildren: './about/about.module#AboutModule' },
+        { path:'contacto', loadChildren: './contact/contact.module#ContactModule' },
         // { path:'', redirectTo: 'noticias', pathMatch:'full' },
         // { path: '**', pathMatch: 'full', redirectTo: 'servicios' }
     ] },

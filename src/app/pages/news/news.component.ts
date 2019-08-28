@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare var $ :any;
+
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -10,6 +12,11 @@ export class NewsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    });
+
   }
 
 }
