@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Base } from 'src/app/class/base.class';
 
 declare function init_plugins();
 
@@ -7,9 +8,15 @@ declare function init_plugins();
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent extends Base implements OnInit {
 
-  constructor() { }
+  constructor() {
+    super();
+
+    setTimeout(() => {
+      this.loading = false;
+    }, 1000);
+  }
 
   ngOnInit () {
     init_plugins();

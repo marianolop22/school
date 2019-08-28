@@ -6,56 +6,27 @@ import { transition, trigger, state, style, animate } from '@angular/animations'
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.css'],
   animations : [
-    // trigger('openClose', [
-    //   state('open', style({
-    //     opacity: 0
-    //   })),
-    //   transition('closed <=> open', animate(1000)),
-    // ]),
-
-    // trigger('openClose', [
-    //   state('void', style({
-    //     opacity: 0
-    //   })),
-    //   transition('void <=> *', animate(1000)),
-    // ]),
-
-
-
-
     trigger('openClose', [
-      // ...
       state('open', style({
         opacity: 1,
       })),
-      state('closed', style({
+      state('close', style({
         opacity: 0,
+        display: 'none'
       })),
-      transition('open => closed', [
-        animate('2s')
-      ]),
-      transition('closed => open', [
-        animate('0.5s')
-      ]),
+      transition('open => close', animate(300)),
     ]),
-
-]
+  ]
 })
+
+
 export class LoadingComponent implements OnInit {
 
-  //@Input() loading: boolean = false;
-  loading = true;
+  @Input() loading: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
-
-    setTimeout(() => {
-      this.loading = false;
-      console.log('mando false');
-      
-    }, 2000);
-
   }
 
 }

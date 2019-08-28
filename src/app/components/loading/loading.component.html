@@ -1,6 +1,6 @@
-<div id="hellopreloader" [ngClass]="{'d-none': !loading}" [@openClose]>
+<div id="hellopreloader" [@openClose]="loading ? 'open':'close'">
 
-    <!-- [ngClass]="{'d-none': !loading, 'd-block': loading }" -->
+    <!-- [ngClass]="{'d-none': !loading, 'd-block': loading }"  [ngClass]="{'d-none': !loading}"-->
 
 
     <div class="preloader">

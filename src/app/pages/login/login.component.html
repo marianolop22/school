@@ -1,4 +1,4 @@
-<app-loading></app-loading>
+<app-loading [loading]=loading></app-loading>
 
 <div class="landing-page">
     <div class="content-bg-wrap"></div>
@@ -44,7 +44,7 @@
                                             <a href="#" class="forgot" data-toggle="modal" data-target="#restore-password">Forgot my Password</a>
                                         </div>
 
-                                        <a href="#" class="btn btn-lg btn-primary full-width">Login</a>
+                                        <a [routerLink]="['/home']" class="btn btn-lg btn-primary full-width">Ingresar</a>
                                     </div>
                                 </div>
                             </form>

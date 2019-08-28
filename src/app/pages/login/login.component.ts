@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Base } from 'src/app/class/base.class';
 
 declare function init_plugins();
 
@@ -7,17 +8,17 @@ declare function init_plugins();
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
 
-  public loading:boolean = true;
+export class LoginComponent extends Base implements OnInit {
 
   constructor() {
 
-    // setTimeout(() => {
-    //   this.loading = false;
-    //   console.log('mando false');
+    super();
+    setTimeout(() => {
+      this.loading = false;
+      console.log('mando false');
       
-    // }, 2000);
+    }, 2000);
 
   }
 
