@@ -59,3 +59,12 @@ export class LoadingComponent implements OnInit {
   }
 
 }
+
+/*
+
+https://dzone.com/articles/understanding-angular-6-animations
+https://medium.com/@tanya/angular4-animated-route-transitions-b5b9667cd67c
+https://www.freecodecamp.org/news/how-to-use-animation-with-angular-6-675b19bc3496/
+https://angular.io/guide/animations
+
+*/
