@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+
 import { PagesRoutingModule } from './pages-routing.module';
 
 import { ComponentsModule } from '../components/components.module';
-import { ClassModule } from '../class/class.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
-import { AboutModule } from './about/about.module';
-
+import { ClassModule } from '../class/class.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +19,7 @@ import { AboutModule } from './about/about.module';
     PagesRoutingModule,
     ComponentsModule,
     SharedModule,
-    ClassModule,
-    AboutModule
+    ClassModule
   ]
 })
 export class PagesModule { }

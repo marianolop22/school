@@ -8,6 +8,7 @@ const routes: Routes = [
         { path:'noticias', loadChildren: './news/news.module#NewsModule' },
         { path:'nosotros', loadChildren: './about/about.module#AboutModule' },
         { path:'contacto', loadChildren: './contact/contact.module#ContactModule' },
+        { path:'cuadernocomunicados', loadChildren: './communications-notebook/communications-notebook.module#CommunicationsNotebookModule' },
         // { path:'', redirectTo: 'noticias', pathMatch:'full' },
         // { path: '**', pathMatch: 'full', redirectTo: 'servicios' }
     ] },

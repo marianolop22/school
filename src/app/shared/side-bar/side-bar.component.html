@@ -12,12 +12,12 @@
 			<ul class="left-menu">
 				<li>
 					<a href="#" class="js-sidebar-open">
-						<svg class="olymp-menu-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="OPEN MENU"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-menu-icon"></use></svg>
+						<svg class="olymp-menu-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="Expandir"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-menu-icon"></use></svg>
 					</a>
 				</li>
 				<li>
-					<a href="03-Newsfeed.html">
-						<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="NEWSFEED"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
+					<a [routerLink]="['cuadernocomunicados']" routerLinkActive="active">
+						<svg class="olymp-blog-icon left-menu-icon" data-toggle="tooltip" data-placement="right" data-original-title="Cuaderno de Comunicados"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-blog-icon"></use></svg>
 					</a>
 				</li>
 				<li>
@@ -84,13 +84,13 @@
 				<li>
 					<a href="#" class="js-sidebar-open">
 						<svg class="olymp-close-icon left-menu-icon"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-close-icon"></use></svg>
-						<span class="left-menu-title">Collapse Menu</span>
+						<span class="left-menu-title">Cerrar Menu</span>
 					</a>
 				</li>
 				<li>
-					<a href="03-Newsfeed.html">
-						<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="NEWSFEED"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
-						<span class="left-menu-title">Newsfeed</span>
+					<a [routerLink]="['cuadernocomunicados']" routerLinkActive="active">
+						<svg class="olymp-blog-icon left-menu-icon" data-toggle="tooltip" data-placement="right" data-original-title="Cuaderno de Comunicados"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-blog-icon"></use></svg>
+						<span class="left-menu-title">Cuaderno de Comunicados</span>
 					</a>
 				</li>
 				<li>
