@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Base } from 'src/app/class/base.class';
+import { MessagingService } from 'src/app/services/service.index';
 
 declare function init_plugins();
 
@@ -10,7 +11,11 @@ declare function init_plugins();
 })
 export class HomeComponent extends Base implements OnInit {
 
-  constructor() {
+  message;
+
+  constructor(
+    private _messaginService: MessagingService
+  ) {
     super();
 
     setTimeout(() => {
@@ -20,5 +25,9 @@ export class HomeComponent extends Base implements OnInit {
 
   ngOnInit () {
     init_plugins();
+    this._messaginService.getPermission();
+    this._messaginService.receiveMessage();
+    this.message = this._messaginService.currentMessage;
+    
   }
 }

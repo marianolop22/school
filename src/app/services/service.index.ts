@@ -1,1 +1,3 @@
-//export { SettingsService } from "./settings.service";
+export { HtmlInjectService } from "./html-inject.service";
+export { UserService } from "./user.service";
+export { MessagingService } from "./messaging.service";

@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-//import { } from "./service.index";
+import {
+  HtmlInjectService,
+  UserService,
+  MessagingService
+} from "./service.index";
 import { HttpClientModule } from "@angular/common/http";
 //import { AdminGuard } from './admin.guard';
 
@@ -11,17 +15,9 @@ import { HttpClientModule } from "@angular/common/http";
     HttpClientModule
   ],
   providers: [
-    // SettingsService,
-    // SharedService,
-    // SidebarService,
-    // UserService,
-    // LoginGuard,
-    // UploadFileService,
-    // ModalUploadService,
-    // HospitalService,
-    // MedicService,
-    // AdminGuard,
-    // CheckTokenGuard
+    HtmlInjectService,
+    UserService,
+    MessagingService
   ]
 })
 export class ServiceModule { }

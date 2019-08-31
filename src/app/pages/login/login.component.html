@@ -21,16 +21,16 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="profile" role="tabpanel" data-mh="log-tab">
                             <div class="title h6">Login to your Account</div>
-                            <form class="content">
+                            <form class="content" (ngSubmit)="login( f )" #f="ngForm">
                                 <div class="row">
                                     <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Your Email</label>
-                                            <input class="form-control" placeholder="" type="email">
+                                            <input [(ngModel)]="user.email" name="email" class="form-control" placeholder="" type="email">
                                         </div>
                                         <div class="form-group label-floating">
                                             <label class="control-label">Your Password</label>
-                                            <input class="form-control" placeholder="" type="password">
+                                            <input [(ngModel)]="user.password" name="password" class="form-control" placeholder="" type="password">
                                         </div>
                                         <div class="remember">
                                             <div class="checkbox">
@@ -41,7 +41,8 @@
                                             </div>
                                             <a href="#" class="forgot" data-toggle="modal" data-target="#restore-password">Forgot my Password</a>
                                         </div>
-                                        <a [routerLink]="['/home', 'noticias']" class="btn btn-lg btn-primary full-width">Ingresar</a>
+                                        <!-- <a [routerLink]="['/home', 'noticias']" class="btn btn-lg btn-primary full-width">Ingresar</a> -->
+                                        <button type="submit" class="btn btn-lg btn-primary full-width">Ingresar</button>
                                     </div>
                                 </div>
                             </form>

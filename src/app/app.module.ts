@@ -9,6 +9,14 @@ import { ServiceModule } from './services/service.module';
 import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from './components/components.module';
 import { ClassModule } from './class/class.module';
+import { FormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+
+
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireMessagingModule } from "@angular/fire/messaging";
+import { AngularFireAuthModule } from "@angular/fire/auth";
 
 @NgModule({
   declarations: [
@@ -17,12 +25,18 @@ import { ClassModule } from './class/class.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    AppRoutingModule,
     ServiceModule,
     ComponentsModule,
     PagesModule,
-    ClassModule
+    ClassModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule, //base de datos
+    AngularFireMessagingModule, //para mensajes push
+    AngularFireAuthModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
