@@ -125,12 +125,37 @@
                         <div class="chat-field">
                             <div class="ui-block-title">
                                 <h6 class="title">Elaine Dreyfuss</h6>
+                                <button type="button" class="btn btn-primary" (click)="show()">
+                                    Mostrar
+
+                                </button>
                                 <a href="#" class="more"><svg class="olymp-three-dots-icon">
                                         <use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
                                     </svg></a>
                             </div>
                             <div class="mCustomScrollbar" data-mcs-theme="dark" style="overflow: auto!important;">
                                 <ul class="notification-list chat-message chat-message-field">
+
+                                    <li *ngFor="let item of commsList">
+                                        <div class="author-thumb">
+                                            <img src="assets/img/avatar10-sm.jpg" alt="author">
+                                        </div>
+                                        <div class="notification-event">
+                                            <a href="#" class="h6 notification-friend">{{item.from}}</a>
+                                            <span class="notification-date">
+                                                <time class="entry-date updated" datetime="2004-07-24T18:18">
+                                                    {{item.sent.seconds * 1000 | date:'dd MMM yy'}}
+                                                </time>
+                                            </span>
+                                            <span class="chat-message-item">
+                                                {{item.message}}
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+
+
                                     <li>
                                         <div class="author-thumb">
                                             <img src="assets/img/avatar10-sm.jpg" alt="author">
@@ -144,7 +169,7 @@
                                                 Birthday.</span>
                                         </div>
                                     </li>
-
+                                    <!--
                                     <li>
                                         <div class="author-thumb">
                                             <img src="assets/img/author-page.jpg" alt="author">
@@ -179,7 +204,7 @@
                                                 see if the client is on board with it. I think That looks really
                                                 good!</span>
                                         </div>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
 

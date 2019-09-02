@@ -18,8 +18,10 @@ export const environment = {
  },
 
   //urls de servicios
-  urlFirebaseLogin: 'https://identitytoolkit.googleapis.com/v1'
+  urlFirebaseLogin: 'https://identitytoolkit.googleapis.com/v1',
   
+  //parametro para login con firebase
+  returnSecureToken: true
 };
 
 /*

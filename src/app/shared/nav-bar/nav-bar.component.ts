@@ -1,15 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommsService } from 'src/app/services/service.index';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  public subscription: Subscription;
+  public counter: number = 0;
+
+  constructor(
+    private _commsService: CommsService
+  ) {
+
+    this.subscription = this._commsService.getCommsList().subscribe (
+      (response:Array<any>) => {
+        this.counter = response.length;
+
+        console.log ( response);
+      }
+    )
+  }
 
   ngOnInit() {
   }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
 
 }

@@ -11,8 +11,7 @@ export class User {
     getUser() {
         return {
             email: this.email,
-            password: this.password,
-            returnSecureToken: true
+            password: this.password
         };
     }
 

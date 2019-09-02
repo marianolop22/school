@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Base } from 'src/app/class/base.class';
-import { MessagingService } from 'src/app/services/service.index';
+//import { MessagingService } from 'src/app/services/service.index';
 
 declare function init_plugins();
 
@@ -14,7 +14,7 @@ export class HomeComponent extends Base implements OnInit {
   message;
 
   constructor(
-    private _messaginService: MessagingService
+    // private _messaginService: MessagingService
   ) {
     super();
 
@@ -25,9 +25,9 @@ export class HomeComponent extends Base implements OnInit {
 
   ngOnInit () {
     init_plugins();
-    this._messaginService.getPermission();
-    this._messaginService.receiveMessage();
-    this.message = this._messaginService.currentMessage;
+    // this._messaginService.getPermission();
+    // this._messaginService.receiveMessage();
+    // this.message = this._messaginService.currentMessage;
     
   }
 }

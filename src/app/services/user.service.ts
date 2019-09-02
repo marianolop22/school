@@ -8,7 +8,6 @@ import { map } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -16,22 +15,23 @@ export class UserService {
 
   constructor(
     private http: HttpClient,
-    private firestore: AngularFirestore,
+    private db: AngularFirestore,
 
   ) { }
 
   public register () {
 
     //https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
-
-
-
   }
 
   public login ( user: User ): Observable<any> {
     return this.http.post ( 
       environment.urlFirebaseLogin + `/accounts:signInWithPassword?key=${environment.firebaseConfig.apiKey}`
-      , user.getUser()
+      , { 
+        email: user.email,
+        password: user.password,
+        returnSecureToken: environment.returnSecureToken
+      }
        );
   }
 
@@ -42,7 +42,7 @@ export class UserService {
 
     //return this.firestore.doc<any>('users/marianolop22@yahoo.com.ar').snapshotChanges();
 
-    return this.firestore.collection("users").doc(userId).snapshotChanges();
+    return this.db.collection("users").doc(userId).snapshotChanges();
 
   }
 

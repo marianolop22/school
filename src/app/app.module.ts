@@ -15,7 +15,6 @@ import { environment } from 'src/environments/environment';
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
-import { AngularFireMessagingModule } from "@angular/fire/messaging";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
 @NgModule({
@@ -34,7 +33,6 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
     ClassModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, //base de datos
-    AngularFireMessagingModule, //para mensajes push
     AngularFireAuthModule
 
   ],
