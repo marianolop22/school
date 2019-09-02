@@ -21,8 +21,9 @@ export class CommunicationsNotebookComponent implements OnInit, OnDestroy {
 
   
   
-    this.subscription = this._commsService.getCommsList().subscribe (
+    this.subscription = this._commsService.getMyComms().subscribe (
       (response:Array<any>) => {
+        //console.log (response);
         console.log (response);
         this.commsList = response;
       }
@@ -38,8 +39,11 @@ export class CommunicationsNotebookComponent implements OnInit, OnDestroy {
 
   public show () {
 
-    this.commsList[0].sent.seconds
-    console.log ( new Date ( this.commsList[0].sent.seconds * 1000    ))
+    this._commsService.getMyComms().subscribe (
+      response => {
+        //console.log(response);
+      }
+    )
   }
 
 }

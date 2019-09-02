@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import {
   HtmlInjectService,
   UserService,
-  MessagingService,
   CommsService
 } from "./service.index";
 import { HttpClientModule } from "@angular/common/http";
@@ -18,7 +17,6 @@ import { HttpClientModule } from "@angular/common/http";
   providers: [
     HtmlInjectService,
     UserService, //todo lo referente al usuario
-    MessagingService,
     CommsService //servicio de manejo de cuaderno de comunicados
   ]
 })

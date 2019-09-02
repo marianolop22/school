@@ -132,6 +132,7 @@
                                 <a href="#" class="more"><svg class="olymp-three-dots-icon">
                                         <use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
                                     </svg></a>
+
                             </div>
                             <div class="mCustomScrollbar" data-mcs-theme="dark" style="overflow: auto!important;">
                                 <ul class="notification-list chat-message chat-message-field">
@@ -139,24 +140,40 @@
                                     <li *ngFor="let item of commsList">
                                         <div class="author-thumb">
                                             <img src="assets/img/avatar10-sm.jpg" alt="author">
+
+                                            <div class="label-avatar bg-primary" *ngIf="item.read == 0"></div>
                                         </div>
-                                        <div class="notification-event">
-                                            <a href="#" class="h6 notification-friend">{{item.from}}</a>
-                                            <span class="notification-date">
-                                                <time class="entry-date updated" datetime="2004-07-24T18:18">
-                                                    {{item.sent.seconds * 1000 | date:'dd MMM yy'}}
-                                                </time>
-                                            </span>
-                                            <span class="chat-message-item">
-                                                {{item.message}}
-                                            </span>
+
+                                        <div class="notification-event w-100">
+                                            <div class="row">
+                                                <a href="#" class="h6 notification-friend col-10">{{item.user.name}}</a>
+                                                <span class="notification-date">
+                                                    <time class="entry-date updated" datetime="2004-07-24T18:18">
+                                                        {{item.sent.seconds * 1000 | date:'dd MMM yy'}}
+                                                    </time>
+                                                </span>
+
+                                            </div>
+
+                                            <div class="row">
+
+                                                <span class="chat-message-item">
+                                                    {{item.message}}
+                                                </span>
+                                            </div>
+                                            <div class="row">
+                                                <button type="button" class="btn btn-primary">
+                                                    Confirmar
+                                                </button>
+
+                                            </div>
                                         </div>
                                     </li>
 
 
 
 
-                                    <li>
+                                    <!-- <li>
                                         <div class="author-thumb">
                                             <img src="assets/img/avatar10-sm.jpg" alt="author">
                                         </div>
@@ -168,7 +185,7 @@
                                                 remember that next week we are going to Gotham Bar to celebrate Marina’s
                                                 Birthday.</span>
                                         </div>
-                                    </li>
+                                    </li> -->
                                     <!--
                                     <li>
                                         <div class="author-thumb">

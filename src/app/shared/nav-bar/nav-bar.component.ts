@@ -16,11 +16,9 @@ export class NavBarComponent implements OnInit, OnDestroy {
     private _commsService: CommsService
   ) {
 
-    this.subscription = this._commsService.getCommsList().subscribe (
+    this.subscription = this._commsService.getUnreadComms().subscribe (
       (response:Array<any>) => {
         this.counter = response.length;
-
-        console.log ( response);
       }
     )
   }

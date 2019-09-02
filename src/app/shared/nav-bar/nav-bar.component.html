@@ -143,7 +143,7 @@
 
             <div class="control-icon more has-items">
                 <svg class="olymp-chat---messages-icon"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-chat---messages-icon"></use></svg>
-                <div class="label-avatar bg-purple">{{counter}}</div>
+                <div class="label-avatar bg-purple" *ngIf="counter > 0">{{counter}}</div>
 
                 <div class="more-dropdown more-with-triangle triangle-top-center">
                     <div class="ui-block-title ui-block-title-small">

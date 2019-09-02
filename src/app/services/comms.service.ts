@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, CollectionReference, QueryFn } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, combineLatest, of } from 'rxjs';
+import { switchMap, map, mergeMap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -23,24 +24,40 @@ export class CommsService {
   }
 
 
-  public getMyComms (): Observable<any> {
+ public getMyComms (): Observable<any>{
+    return this.db.collection( 'comms' , ref => {
+      return ref.where ( 'to', '==', 'marianolop22@yahoo.com.ar');
+                
+    } ).valueChanges().pipe(
 
-    let reff: CollectionReference = 'comms';
+      switchMap ( (commsList:any) => {
 
-    reff.where ( 'school', '==', 'V9uV3ZkLoQ4DzojgkiBL');
-
-    // let query: QueryFn =  response => {
-    //   console.log ( response);
-    //   //return 'hola';
-    // };
-
-    this.db.collection( reff );
+        let userObservables = commsList.map(
+          (comm:any) => this.db.collection(`users`).doc(`${comm.from}`).snapshotChanges()
+        );
     
-
-    return this.db.collection("comms").valueChanges();
-    
+        return userObservables.length === 0 ?
+          of(commsList) :
+          combineLatest(...userObservables, (...users) => {
+            commsList.forEach((commsItem, index) => {
+              commsList[index].user = users[index].payload.data();
+            });
+            return commsList;          
+          });
+      })
+    );
  }
 
+  public getUnreadComms () {
+
+
+  
+    return this.db.collection( 'comms' , ref => {
+      return ref.where ( 'to', '==', 'marianolop22@yahoo.com.ar')
+                .where ( 'read', '==', 0);
+    } ).valueChanges();
+               
+  } 
 
 
 
