@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommsService } from 'src/app/services/service.index';
-import { Observable, Subscription } from 'rxjs';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Subscription } from 'rxjs';
+
+declare var $ :any;
 
 @Component({
   selector: 'app-communications-notebook',
@@ -11,38 +12,52 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class CommunicationsNotebookComponent implements OnInit, OnDestroy {
 
 
-  commsList: Array<any>;
-  subscription: Subscription;
-
-
+  public commsList: Array<any>;
+  public subscription: Subscription;
+  public studentList: Array<any>;
 
   constructor(
     public _commsService:CommsService
   ) {
-
-  
-  
-    this.subscription = this._commsService.getMyComms().subscribe (
+    this.subscription = this._commsService.getCommsList('marianolop22@yahoo.com.ar','escuelaid', 'studentid').subscribe (
       (response:Array<any>) => {
-        //console.log (response);
-        console.log (response);
         this.commsList = response;
+
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        });
+
       }
     )
   }
 
   ngOnInit() {
+    this._commsService.getStudentsAsociated ( 'marianolop22@yahoo.com.ar', 'escuela')
+    .subscribe(
+      (response:Array<any>) => {
+        this.studentList = response;
+      }
+    );
+
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  public show ( item:any) {
+  public markAsRead ( item:any ) {
 
-    item.read = 1;
+    $('[data-toggle="tooltip"]').tooltip('hide');
+    this._commsService.markCommAsRead( item.id)
+      .then (
+        response => {
+          console.log ('actualizó', response);
+        }
+      );
+  }
 
-
+  show( item ) {
+    console.log ('click', item);
   }
 
 }

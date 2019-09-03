@@ -18,7 +18,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
     private router: Router
   ) {
 
-    this.subscription = this._commsService.getUnreadComms().subscribe (
+    this.subscription = this._commsService.getUnreadComms('marianolop22@yahoo.com.ar').subscribe (
       (response:Array<any>) => {
         this.counter = response.length;
       }

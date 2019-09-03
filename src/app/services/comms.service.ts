@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, CollectionReference, QueryFn } from '@angular/fire/firestore';
-import { Observable, combineLatest, of } from 'rxjs';
-import { switchMap, map, mergeMap } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable, combineLatest, of, forkJoin } from 'rxjs';
+import { switchMap, map, mergeMap, combineAll } from 'rxjs/operators';
 
 
 @Injectable({
@@ -18,16 +18,22 @@ export class CommsService {
     //this.commsList = this.db.collection("comms").valueChanges();// .valueChanges();
   }
 
-  public getCommsList (): Observable<any> {
-     return this.db.collection('comms').valueChanges();
+  public getCommsListOld (): Observable<any> {
+     return this.db.collection('comms').valueChanges({'idField':'id'}).pipe (
+
+       map ( (response:any) => {
+
+        console.log ('map', response);
+
+       })
+     );
   }
 
 
- public getMyComms (): Observable<any>{
+ public getCommsList ( userId: string, schoolId: string, studentId: string ): Observable<any>{
     return this.db.collection( 'comms' , ref => {
-      return ref.where ( 'to', '==', 'marianolop22@yahoo.com.ar');
-                
-    } ).valueChanges().pipe(
+      return ref.where ( 'to', '==', userId).orderBy ( 'sent', 'desc' );
+    } ).valueChanges({'idField':'id'}).pipe(
 
       switchMap ( (commsList:any) => {
         let commsObservable = commsList.map(
@@ -48,16 +54,41 @@ export class CommsService {
     );
  }
 
-  public getUnreadComms () {
+  public getUnreadComms ( userId: string ):Observable<any> {
     return this.db.collection( 'comms' , ref => {
-      return ref.where ( 'to', '==', 'marianolop22@yahoo.com.ar')
+      return ref.where ( 'to', '==', userId)
                 .where ( 'read', '==', 0);
     } ).valueChanges();
                
   } 
 
+  public markCommAsRead ( commId: string): Promise<any> {
+    return this.db.doc(`comms/${commId}`).update({ read: new Date().getTime() });
+  }
 
+  public getStudentsAsociated ( userId:string, schoolId:string ) {
 
+    return this.db.collection('users').doc(userId).valueChanges().pipe (
+      switchMap ( (studentList:any) => {
+        console.log (studentList);
 
+        let studentsObservable = studentList.students.map(
+          (student:any) => {
+            return this.db.collection('students').doc(`${student}`).valueChanges();
+          }
+        );
 
+        return studentList.students.length === 0 ?
+        [] : 
+        combineLatest(...studentsObservable, (...students) => {
+          studentList.students.forEach((studentItem, index) => {
+            students[index].id = studentItem;
+          });
+          return students;          
+        });
+      })
+    );
+      
+  }
+    
 }

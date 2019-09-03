@@ -1,15 +1,49 @@
 <div class="container">
     <div class="row">
-        <div class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
+
+            <div class="col col-xl-3 order-xl-1 col-lg-6 order-lg-1 col-md-12 order-md-2 col-sm-12 col-12">
+                    <div class="ui-block">
+                        <div class="ui-block-title">
+                            <h6 class="title">Estudiantes</h6>
+                        </div>
+        
+                        <!-- W-Playlist -->
+                        
+                        <ol class="widget w-playlist">
+                            <li (click)="show( item )" class="js-open-popup" *ngFor="let item of studentList">
+                                
+                                    <div class="author-thumb mr-2">
+                                            <img alt="author" src="assets/img/avatar62-sm.jpg" class="avatar">
+                                        </div>                                
+                                <!-- <div class="playlist-thumb">
+                                    <img src="assets/img/playlist6.jpg" alt="thumb-composition">
+                                </div> -->
+                        
+                                <div class="composition">
+                                    <a [routerLink]="[]" class="composition-name">{{item.name}}</a>
+                                    <a [routerLink]="[]" class="composition-author">{{item.lastName}}</a>
+                                </div>
+                        
+                                <div class="composition float-right">
+                                    <!-- <a href=""><span class="items-round-little bg-breez">2</span></a> -->
+                                    <a [routerLink]="[]" class="composition-author">5</a>
+                                    <!-- <time class="published" datetime="2017-03-24T18:18">5</time> -->
+                                </div>
+                            </li>
+                        </ol>
+                        
+                        <!-- .. end W-Playlist -->
+                    </div>
+                </div>
+
+
+
+        <!-- <div class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
             <div class="ui-block">
-
-                <!-- Your Profile  -->
-
                 <div class="your-profile">
                     <div class="ui-block-title ui-block-title-small">
                         <h6 class="title">Cuaderno de Comunicados</h6>
                     </div>
-
                     <div id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="card">
                             <div class="card-header" role="tab" id="headingOne">
@@ -23,72 +57,32 @@
                                     </a>
                                 </h6>
                             </div>
-
                             <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="ui-block-title">
-                                    <span class=" ">Malena Lopez</span>
-                                    <span class="items-round-little bg-primary">8</span>
+                                <div class="ui-block-title" *ngFor="let item of studentList" style=>
+                                    <a [routerLink]="[]" routerLinkActive="active" class="text-muted">
+                                        {{item.name}} {{item.lastName}}
+                                    </a>
+                                    <a class="items-round-little bg-blue text-white">4</a>
                                 </div>
-
-                                <div class="ui-block-title">
-                                    <a href="34-YourAccount-ChatMessages.html" class=" ">Luisana Lopez</a>
-                                    <a href="#" class="items-round-little bg-blue">4</a>
-                                </div>
-                                <!-- <ul class="your-profile-menu">
-                                            <li class="col-12">
-                                                <a href="33-YourAccount-Notifications.html" class="col-4">Notifications</a>
-                                                <a href="#" class="items-round-little bg-primary col-8">8</a>
-                                            </li>
-                                            <li>
-                                                <a href="29-YourAccount-AccountSettings.html">Luisna Lopez</a>
-                                                <a href="#" class="items-round-little bg-primary">8</a>
-                                            </li>
-                                        </ul> -->
                             </div>
                         </div>
                     </div>
-
-                    <!-- <div class="ui-block-title">
-                                <a href="33-YourAccount-Notifications.html" class="h6 title">Malena Lopez</a>
-                                <a href="#" class="items-round-little bg-primary">8</a>
-                            </div>
-                            <div class="ui-block-title">
-                                <a href="34-YourAccount-ChatMessages.html" class="h6 title">Luisana Lopez</a>
-                                <a href="#" class="items-round-little bg-blue">4</a>
-                            </div>
-                            <div class="ui-block-title">
-                                <a href="35-YourAccount-FriendsRequests.html" class="h6 title">Friend Requests</a>
-                                <a href="#" class="items-round-little bg-blue">4</a>
-                            </div>
-                            <div class="ui-block-title ui-block-title-small">
-                                <h6 class="title">FAVOURITE PAGE</h6>
-                            </div>
-                            <div class="ui-block-title">
-                                <a href="36-FavPage-SettingsAndCreatePopup.html" class="h6 title">Create Fav Page</a>
-                            </div>
-                            <div class="ui-block-title">
-                                <a href="36-FavPage-SettingsAndCreatePopup.html" class="h6 title">Fav Page Settings</a>
-                            </div> -->
                 </div>
-
-                <!-- ... end Your Profile  -->
-
             </div>
+        </div> -->
 
-
-
-        </div>
-        <div class="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+        <div class="col col-xl-7 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
             <div class="ui-block">
                 <div class="ui-block-title">
                     <h6 class="title">Comunicados de: Malena Lopez</h6>
-                    <form class="w-search">
-                        <div class="form-group with-button is-empty col-6 float-right">
+                    <form class="w-search col-6 pr-0">
+                        <div class="form-group with-button is-empty float-right">
                             <input class="form-control" type="text" placeholder="Buscar...">
                             <button>
 								<svg class="olymp-magnifying-glass-icon"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-magnifying-glass-icon"></use></svg>
 							</button>
-                            <span class="material-input"></span></div>
+                            <span class="material-input"></span>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -105,7 +99,7 @@
                             <a class="h6 post__author-name fn" href="02-ProfilePage.html">{{item.user.name}}</a>
                             <div class="post__date">
                                 <time class="published" datetime="2017-03-24T18:18">
-                                        {{item.sent.seconds * 1000 | date:'dd MMM yy'}}
+                                        {{item.sent.seconds * 1000 | date:'dd MMM yy HH:mm:ss'}}
                                     </time>
                             </div>
                         </div>
@@ -195,17 +189,19 @@
 
                         <div *ngIf="item.read > 0; then read;else unread"></div>
                         <ng-template #read>
-                            <a class="btn btn-control bg-success">
-                                <svg><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-check-icon"></use></svg>
-                                <!-- <svg class="olymp-like-post-icon"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-like-post-icon"></use></svg> -->
+                            <a class="btn btn-control bg-success" data-toggle="tooltip" data-placement="right" data-original-title="Leído">
+                                <svg>
+                                    <use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-check-icon"></use>
+                                </svg>
                             </a>
 
                         </ng-template>
 
                         <ng-template #unread>
-                            <a [routerLink]="" (click)="show( item )" class="btn btn-control bg-danger">
-                                <svg><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-info-icon"></use></svg>
-                                <!-- <svg class="olymp-like-post-icon"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-like-post-icon"></use></svg> -->
+                            <a [routerLink]="[]" (click)="markAsRead( item )" class="btn btn-control bg-danger" data-toggle="tooltip" data-placement="right" data-original-title="Notificar Lectura">
+                                <svg>
+                                    <use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-info-icon"></use>
+                                </svg>
                             </a>
 
                         </ng-template>
