@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommsService } from 'src/app/services/service.index';
 import { Observable, Subscription } from 'rxjs';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-communications-notebook',
@@ -37,13 +38,11 @@ export class CommunicationsNotebookComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  public show () {
+  public show ( item:any) {
 
-    this._commsService.getMyComms().subscribe (
-      response => {
-        //console.log(response);
-      }
-    )
+    item.read = 1;
+
+
   }
 
 }

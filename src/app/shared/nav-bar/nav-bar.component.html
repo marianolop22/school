@@ -142,10 +142,12 @@
 			</div> -->
 
             <div class="control-icon more has-items">
-                <svg class="olymp-chat---messages-icon"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-chat---messages-icon"></use></svg>
+
+                <svg class="olymp-chat---messages-icon" (click)="navigate('cuadernocomunicados')"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-chat---messages-icon"></use></svg>
                 <div class="label-avatar bg-purple" *ngIf="counter > 0">{{counter}}</div>
 
-                <div class="more-dropdown more-with-triangle triangle-top-center">
+
+                <!-- <div class="more-dropdown more-with-triangle triangle-top-center">
                     <div class="ui-block-title ui-block-title-small">
                         <h6 class="title">Comunicados</h6>
                         <a href="#">Mark all as read</a>
@@ -229,15 +231,17 @@
                     </div>
 
                     <a href="#" class="view-all bg-purple">View All Messages</a>
-                </div>
+                </div> -->
             </div>
 
             <div class="control-icon more has-items">
-                <svg class="olymp-thunder-icon"><use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-thunder-icon"></use></svg>
+                <svg class="olymp-thunder-icon" (click)="navigate('notificaciones')">
+                    <use xlink:href="assets/svg-icons/sprites/icons.svg#olymp-thunder-icon"></use>
+                </svg>
 
                 <div class="label-avatar bg-primary">8</div>
 
-                <div class="more-dropdown more-with-triangle triangle-top-center">
+                <!-- <div class="more-dropdown more-with-triangle triangle-top-center">
                     <div class="ui-block-title ui-block-title-small">
                         <h6 class="title">Notifications</h6>
                         <a href="#">Mark all as read</a>
@@ -344,7 +348,7 @@
                     </div>
 
                     <a href="#" class="view-all bg-primary">View All Notifications</a>
-                </div>
+                </div> -->
             </div>
 
             <div class="author-page author vcard inline-items more">

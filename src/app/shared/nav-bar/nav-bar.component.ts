@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommsService } from 'src/app/services/service.index';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,7 +14,8 @@ export class NavBarComponent implements OnInit, OnDestroy {
   public counter: number = 0;
 
   constructor(
-    private _commsService: CommsService
+    private _commsService: CommsService,
+    private router: Router
   ) {
 
     this.subscription = this._commsService.getUnreadComms().subscribe (
@@ -30,5 +32,8 @@ export class NavBarComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  navigate( url:string) {
+    this.router.navigate (['/home',url]);
+  }
 
 }

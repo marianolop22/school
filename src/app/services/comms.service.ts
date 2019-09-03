@@ -20,7 +20,6 @@ export class CommsService {
 
   public getCommsList (): Observable<any> {
      return this.db.collection('comms').valueChanges();
-     
   }
 
 
@@ -31,14 +30,15 @@ export class CommsService {
     } ).valueChanges().pipe(
 
       switchMap ( (commsList:any) => {
-
-        let userObservables = commsList.map(
-          (comm:any) => this.db.collection(`users`).doc(`${comm.from}`).snapshotChanges()
+        let commsObservable = commsList.map(
+          (comm:any) => {
+            return this.db.collection(`users`).doc(`${comm.from}`).snapshotChanges();
+          }
         );
     
-        return userObservables.length === 0 ?
+        return commsObservable.length === 0 ?
           of(commsList) :
-          combineLatest(...userObservables, (...users) => {
+          combineLatest(...commsObservable, (...users) => {
             commsList.forEach((commsItem, index) => {
               commsList[index].user = users[index].payload.data();
             });
@@ -49,9 +49,6 @@ export class CommsService {
  }
 
   public getUnreadComms () {
-
-
-  
     return this.db.collection( 'comms' , ref => {
       return ref.where ( 'to', '==', 'marianolop22@yahoo.com.ar')
                 .where ( 'read', '==', 0);
