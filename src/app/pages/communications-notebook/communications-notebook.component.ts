@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CommsService } from 'src/app/services/service.index';
+import { CommsService, UserService } from 'src/app/services/service.index';
 import { Subscription } from 'rxjs';
 
 declare var $ :any;
@@ -17,9 +17,12 @@ export class CommunicationsNotebookComponent implements OnInit, OnDestroy {
   public studentList: Array<any>;
 
   constructor(
-    public _commsService:CommsService
+    public _commsService:CommsService,
+    private _userService: UserService
   ) {
-    this.subscription = this._commsService.getCommsList('marianolop22@yahoo.com.ar','escuelaid', 'studentid').subscribe (
+
+    console.log ( 'usuario', this._userService.user );
+    this.subscription = this._commsService.getCommsList(this._userService.user.email,'escuelaid', 'studentid').subscribe (
       (response:Array<any>) => {
         this.commsList = response;
 

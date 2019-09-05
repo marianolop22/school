@@ -32,7 +32,7 @@ export class CommsService {
 
  public getCommsList ( userId: string, schoolId: string, studentId: string ): Observable<any>{
     return this.db.collection( 'comms' , ref => {
-      return ref.where ( 'to', '==', userId).orderBy ( 'sent', 'desc' );
+      return ref.where ( 'to', '==', userId ).orderBy ( 'sent', 'desc' );
     } ).valueChanges({'idField':'id'}).pipe(
 
       switchMap ( (commsList:any) => {

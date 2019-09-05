@@ -1,40 +1,41 @@
 <div class="container">
     <div class="row">
 
-            <div class="col col-xl-3 order-xl-1 col-lg-6 order-lg-1 col-md-12 order-md-2 col-sm-12 col-12">
-                    <div class="ui-block">
-                        <div class="ui-block-title">
-                            <h6 class="title">Estudiantes</h6>
+        <div class="col col-xl-3 order-xl-1 col-lg-6 order-lg-1 col-md-12 order-md-2 col-sm-12 col-12">
+            <div class="ui-block">
+                <div class="ui-block-title">
+                    <h6 class="title">Estudiantes</h6>
+                </div>
+
+                <!-- W-Playlist -->
+
+                <ol class="widget w-playlist">
+                    <li (click)="show( item )" class="js-open-popup" *ngFor="let item of studentList">
+
+                        <div class="author-thumb mr-2">
+                            <img alt="author" src="assets/img/avatar62-sm.jpg" class="avatar">
                         </div>
-        
-                        <!-- W-Playlist -->
-                        
-                        <ol class="widget w-playlist">
-                            <li (click)="show( item )" class="js-open-popup" *ngFor="let item of studentList">
-                                
-                                    <div class="author-thumb mr-2">
-                                            <img alt="author" src="assets/img/avatar62-sm.jpg" class="avatar">
-                                        </div>                                
-                                <!-- <div class="playlist-thumb">
+                        <!-- <div class="playlist-thumb">
                                     <img src="assets/img/playlist6.jpg" alt="thumb-composition">
                                 </div> -->
-                        
-                                <div class="composition">
-                                    <a [routerLink]="[]" class="composition-name">{{item.name}}</a>
-                                    <a [routerLink]="[]" class="composition-author">{{item.lastName}}</a>
-                                </div>
-                        
-                                <div class="composition float-right">
-                                    <!-- <a href=""><span class="items-round-little bg-breez">2</span></a> -->
-                                    <a [routerLink]="[]" class="composition-author">5</a>
-                                    <!-- <time class="published" datetime="2017-03-24T18:18">5</time> -->
-                                </div>
-                            </li>
-                        </ol>
-                        
-                        <!-- .. end W-Playlist -->
-                    </div>
-                </div>
+
+                        <div class="composition">
+                            <a [routerLink]="[]" class="composition-name">{{item.name}}</a>
+                            <a [routerLink]="[]" class="composition-author">{{item.lastName}}</a>
+                        </div>
+
+                        <div class="composition float-right">
+                            <!-- <div class="label-list-student bg-danger">4</div> -->
+                            <a href="#" class="rounded-counter">3</a>
+                            <!-- <a class="composition-name">5</a> -->
+                            <!-- <time class="published" datetime="2017-03-24T18:18">5</time> -->
+                        </div>
+                    </li>
+                </ol>
+
+                <!-- .. end W-Playlist -->
+            </div>
+        </div>
 
 
 

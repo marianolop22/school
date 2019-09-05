@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { reject } from 'q';
+import { SchoolService } from 'src/app/services/service.index';
 
 declare function init_plugins();
 
@@ -20,7 +21,8 @@ export class LoginComponent extends Base implements OnInit {
 
   constructor(
     private router: Router,
-    private _user: UserService
+    private _userService: UserService,
+    private _schoolService: SchoolService
   ) {
     super();
     this.loading = false;
@@ -37,24 +39,12 @@ export class LoginComponent extends Base implements OnInit {
 
   login ( f:NgForm) {
 
-    console.log ( f.value);
-
-    this._user.login ( this.user ).subscribe (
+    this._userService.login ( this.user ).subscribe (
       response => {
 
-        this._user.getData ( this.user.email ).subscribe (
-          (response:any) => {
-            console.log ('hola' , response.payload.data(), response.payload.id);
-    
-          },
-          reject => {
-            console.log (reject);
-          }
-        );
-
-
-
-
+        this._userService.setUser ( this.user.email );
+        this._userService.setSessionCredentials ( response );
+        this._schoolService.setSchool ('V9uV3ZkLoQ4DzojgkiBL');
         console.log ( response );
       },
       reject => {

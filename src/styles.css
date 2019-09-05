@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/*agrego mis estilos copiados*/
+
+.label-list-student {
+    /* position: absolute; */
+    top: -1px;
+    right: -4px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.rounded-counter {
+    line-height: 26px;
+    opacity: .8;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 2px solid #fff;
+    display: block;
+    margin-left: -12px;
+    /* line-height: 34px; */
+    text-align: center;
+    color: #fff!important;
+    background-color: #ff5e3a;
+    font-size: 10px;
+    font-weight: 800;
+}
