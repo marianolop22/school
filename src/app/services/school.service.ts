@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { School } from '../models/school.model';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -11,7 +12,8 @@ export class SchoolService {
   public school: School = new School();
 
   constructor(
-    private db: AngularFirestore
+    private db: AngularFirestore,
+    private http: HttpClient
   ) { }
 
 
@@ -34,8 +36,13 @@ export class SchoolService {
 
   }
 
+  async getIdSchool () {
+    let response = await this.http.get('config.json').toPromise();
+    console.log ( 'a ver ', response );
+    return response;
+  }
 
 
 
-  V9uV3ZkLoQ4DzojgkiBL
+
 }

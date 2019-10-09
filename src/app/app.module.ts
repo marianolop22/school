@@ -11,7 +11,7 @@ import { ComponentsModule } from './components/components.module';
 import { ClassModule } from './class/class.module';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
-
+import { HttpClientModule } from "@angular/common/http";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
@@ -33,8 +33,8 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
     ClassModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, //base de datos
-    AngularFireAuthModule
-
+    AngularFireAuthModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 export const environment = {
   production: true,
+  //urlApi: 'http://localhost:3301/v1',
+  urlApi: 'https://api.micolegio.com.ar/v1',
   mapsKey: 'AIzaSyAE-70gYGN_ypxam5bOwQbq4MYVXMX2z8Y',
   //Firebase configuration
   firebaseConfig: {

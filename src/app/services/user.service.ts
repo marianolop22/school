@@ -40,6 +40,7 @@ export class UserService {
   }
 
   public logout ( user: User ) {
+    sessionStorage.clear();
   }
 
   public setUser ( userId:string ) {

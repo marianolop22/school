@@ -4,10 +4,11 @@
 
 export const environment = {
   production: false,
+  urlApi: 'http://localhost:3301/v1',
+  //urlApi: 'https://api.micolegio.com.ar/v1',
   mapsKey: 'AIzaSyAE-70gYGN_ypxam5bOwQbq4MYVXMX2z8Y',
   //Firebase configuration
   firebaseConfig: {
-
     apiKey: 'AIzaSyBXRCGCHOakcd6KXx99FswMGw0g9yH4BQs',
     authDomain: 'school-3e51f.firebaseapp.com',
     databaseURL: 'https://school-3e51f.firebaseio.com',
@@ -19,7 +20,6 @@ export const environment = {
 
   //urls de servicios
   urlFirebaseLogin: 'https://identitytoolkit.googleapis.com/v1',
-  
   //parametro para login con firebase
   returnSecureToken: true
 };
